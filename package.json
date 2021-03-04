@@ -1,0 +1,36 @@
+{
+  "name": "goglemaps-order-api",
+  "version": "1.0.0",
+  "description": "An api to calculate distance using googlemaps",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app",
+    "dev": "nodemon src/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Collinsboss18/working-with-google-map-api.git"
+  },
+  "keywords": [
+    "GoogleMap",
+    "API",
+    "Express"
+  ],
+  "author": "Joseph Obochi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pryme0/googlemaps-order-api"
+  },
+  "homepage": "https://github.com/pryme0/googlemaps-order-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bunyan": "^1.8.15",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18"
+  }
+}
