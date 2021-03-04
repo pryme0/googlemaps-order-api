@@ -11,7 +11,7 @@ class ResponseServices {
 	 * @return Object
 	 */
 	static async successResponse(id, distance, status = 'UNASSIGNED') {
-		return { code, data, api };
+		return {  };
 	}
 
 	/**

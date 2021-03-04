@@ -11,7 +11,10 @@ const ServiceController = require('../controllers/ServiceController');
  * @query origin: []
  * @query destination: []
  */
-router.get('/', (req, res) => res.send('Welcome to GoogleMaps API integrations'));
+
+
 router.post('/orders', ServiceController.order);
+router.patch('/orders/:id',ServiceController.takeOrder);
+router.get('/orders',ServiceController.paginateOrder)
 
 module.exports = router;

@@ -5,12 +5,12 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app",
+    "start": "nodemon src/app",
     "dev": "nodemon src/app"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Collinsboss18/working-with-google-map-api.git"
+    "url": "git+https://github.com/pryme0/googlemaps-order-api"
   },
   "keywords": [
     "GoogleMap",

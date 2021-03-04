@@ -2,13 +2,33 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const https = require('https');
+const mongoose = require('mongoose');
 const path = require('path');
+const dotEnv = require('dotenv');
 const fs = require('fs');
 const cluster = require('cluster');
 const cpus = require('os').cpus().length;
 const log = require('bunyan').createLogger({ name: 'chatter' });
 const Routes = require('./routes/index');
-const port = parseInt(process.argv[2] || '4000');
+const { request } = require('http');
+
+dotEnv.config({
+	path:'./env'
+})
+
+mongoose.connect(process.env.MONGODB_CONN_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useFindAndModify: false,
+	autoIndex: false,
+}).then(con=>{
+	con&&console.log('Mongodb connected sucessfully');
+	
+}).catch(err=>{
+	console.log(err.message)
+});
+
+const port = parseInt(process.env.PORT|| '4000');
 const options = {
 	key: fs.readFileSync(path.resolve('./key.pem')),
 	cert: fs.readFileSync(path.resolve('./cert.pem')),
@@ -29,6 +49,7 @@ if (cluster.isMaster) {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use('/', Routes);
 
 // catch 404 and forward to error handler
